@@ -1,7 +1,11 @@
 import React from "react";
 import Input from "../Input/Input";
+import Button from "../Button/Button";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+  const formChangeHandler = () => {
+    props.onSlider('slider-to-right');
+}
   return (
     <>
       <div className="flex w-full h-full">
@@ -17,13 +21,11 @@ const LoginForm = () => {
               className="bg-green-500"
             />
             <Input label="Password" type="password" id="password" />
-            <button className="ml-8 bg-blue-700 text-white px-8 py-2 rounded-lg">
-              Login
-            </button>
+            <Button type="submit">Login</Button>
             <div className="m-8 mt-16">
               <p className="text-[16px]">
                 Don't have an account?
-                <span className="text-[14px] underline text-blue-800 cursor-pointer ml-16">
+                <span className="text-[14px] underline text-blue-800 cursor-pointer ml-24" onClick={formChangeHandler}>
                   SIGNUP
                 </span>
               </p>
