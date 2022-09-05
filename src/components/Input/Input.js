@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Input = (props) => {
+  
+  const inputChangeHandler = (event) => {
+    props.change(event.target.value)
+  }
+
   return (
     <div className="h-[37px] m-8">
       <div class="relative z-0">
@@ -10,6 +15,7 @@ const Input = (props) => {
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-[2px] focus:outline-none focus:ring-0 peer pl-2"
           placeholder=" "
           required
+          onChange={inputChangeHandler}
         />
         <label
           for={props.id}

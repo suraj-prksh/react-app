@@ -10,7 +10,7 @@ const SignupForm = (props) => {
   const submithandler = (event) => {
     event.preventDefault();
 
-    console.log("submitted aksjdhkajdshk")
+    console.log("submitted aksjdhkajdshk");
   };
   return (
     <>
@@ -29,16 +29,14 @@ const SignupForm = (props) => {
               type="password"
               id="confirm_password"
             />
-            <Button type="submit">Sign Up</Button>
-            <div className="m-8 mt-16">
-              <p className="text-[16px]">
-                Already have an account?
-                <span
-                  className="text-[14px] underline text-blue-800 cursor-pointer ml-24"
-                  onClick={formChangeHandler}
-                >
-                  LOGIN
-                </span>
+            <Button type="submit" ml='ml-8'>Sign Up</Button>
+            <div className="m-8 mt-16 flex justify-between">
+              <p className="text-[16px]">Already have an account?</p>
+              <p
+                className="text-[14px] underline text-blue-800 cursor-pointer "
+                onClick={formChangeHandler}
+              >
+                LOGIN
               </p>
             </div>
           </form>
