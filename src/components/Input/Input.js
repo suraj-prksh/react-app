@@ -9,6 +9,7 @@ const Input = (props) => {
           id={props.id}
           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-[2px] focus:outline-none focus:ring-0 peer pl-2"
           placeholder=" "
+          required
         />
         <label
           for={props.id}

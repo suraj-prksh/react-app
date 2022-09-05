@@ -4,22 +4,25 @@ import Button from "../Button/Button";
 
 const SignupForm = (props) => {
   const formChangeHandler = () => {
-    props.onSlider('slider-to-left');
-}
+    props.onSlider("slider-to-left");
+  };
+
+  const submithandler = (event) => {
+    event.preventDefault();
+
+    console.log("submitted aksjdhkajdshk")
+  };
   return (
     <>
       <div className="flex w-full h-full">
-        <div className="mx-auto my-auto w-[50%] h-[65%] flex-col ">
-          <form onSubmit="">
+        <div className="mx-auto my-auto w-[50%] h-[70%] flex-col ">
+          <form onSubmit={submithandler}>
             <div className="m-8">
               <p className="text-[30px]">Sign Up</p>
             </div>
-            <Input
-              label="Email"
-              type="email"
-              id="email"
-              className="bg-green-500"
-            />
+            <Input label="Name" type="text" id="name" />
+
+            <Input label="Email" type="email" id="email" />
             <Input label="Password" type="password" id="password" />
             <Input
               label="Confirm Password"
@@ -30,7 +33,10 @@ const SignupForm = (props) => {
             <div className="m-8 mt-16">
               <p className="text-[16px]">
                 Already have an account?
-                <span className="text-[14px] underline text-blue-800 cursor-pointer ml-16" onClick={formChangeHandler}>
+                <span
+                  className="text-[14px] underline text-blue-800 cursor-pointer ml-24"
+                  onClick={formChangeHandler}
+                >
                   LOGIN
                 </span>
               </p>
