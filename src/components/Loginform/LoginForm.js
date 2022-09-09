@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import axios from "axios";
 
 const LoginForm = (props) => {
   const [enteredEmail, setenteredEmail] = useState("");
@@ -10,22 +11,32 @@ const LoginForm = (props) => {
     props.onSlider("slider-to-right");
   };
 
-  const [showPassword, setshowPassword] = useState(false);
-
   const emailInputChangeHandler = (inputEmail) => {
-    console.log(inputEmail, "input EmailenteredEmail");
+    console.log(inputEmail, "emailInputChangeHandler");
     setenteredEmail(inputEmail);
-    console.log(enteredEmail, "entered email");
+    console.log(enteredEmail, "entered email emailInputChangeHandler");
   };
 
   const passwordInputChangeHandler = (inputPassword) => {
     setenteredPassword(inputPassword);
   };
 
+    // When want to run the call for first page render
+  // useEffect(() => {
+  //   axios.get('url/url.com').then((res) => console.log(res.data));
+
+  // }, [])
+  
+
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(enteredEmail, "eneteredEmail from submit handler");
-    console.log(enteredPassword, "enteredPassword from submit handler");
+    // Axios post method call
+    const url = 'http://127.0.0.1:8000/auth/login/'
+    const payload = {
+      "email": enteredEmail,
+      "password": enteredPassword
+    }
+    axios.post(url, payload).then(res => console.log("postinf data", res)).catch(err => console.log(err))
   };
 
   return (
