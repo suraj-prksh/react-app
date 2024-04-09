@@ -21,13 +21,6 @@ const LoginForm = (props) => {
     setenteredPassword(inputPassword);
   };
 
-    // When want to run the call for first page render
-  // useEffect(() => {
-  //   axios.get('url/url.com').then((res) => console.log(res.data));
-
-  // }, [])
-  
-
   const submitHandler = (event) => {
     event.preventDefault();
     // Axios post method call
